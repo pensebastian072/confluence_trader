@@ -1,0 +1,4 @@
+{
+  "symbols": ["SPY", "QQQ"],
+  "note": "P1 backfill universe. Expand only after the leakage suite (P2) and per-family tests (P3) are green."
+}

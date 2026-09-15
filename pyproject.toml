@@ -1,0 +1,29 @@
+[project]
+name = "confluence-trader"
+version = "0.1.0"
+description = "Multi-signal MTF confluence trading engine - paper/shadow only, no broker"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.2",
+    "numpy>=1.26,<3",
+    "pyarrow>=16",
+    "pandas-ta-classic>=0.6",
+    "alpaca-py>=0.33",
+    "truststore>=0.9",
+    "python-dotenv>=1",
+    "certifi",
+    "pytest>=8",
+]
+
+# NOTE: smartmoneyconcepts==0.0.26 hard-pins pandas==2.0.2 (conflicts with pandas>=2.2),
+# so it is deliberately NOT a declared dependency. At P3 install it isolated with
+#   uv pip install --no-deps --native-tls smartmoneyconcepts==0.0.26
+# behind vendor\smc_fallback.py + a one-line import indirection (see PLAN.md).
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["network: tests that hit live external sources (deselected by default)"]
+addopts = "-m 'not network'"
+
+[tool.uv]
+package = false

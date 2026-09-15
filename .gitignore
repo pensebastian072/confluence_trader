@@ -1,0 +1,11 @@
+.venv/
+.env
+secrets/
+data_cache/
+journal/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+uv.lock
+graphify-out/
